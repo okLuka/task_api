@@ -1,0 +1,133 @@
+{
+  "info": {
+    "name": "Task API Collection",
+    "_postman_id": "12345678-1234-1234-1234-1234567890ab",
+    "description": "Коллекция для тестирования REST API управления задачами",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Создание задачи",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Тестовая задача\",\n  \"description\": \"Описание задачи\",\n  \"due_date\": \"2025-04-20T18:00:00\",\n  \"status\": \"не выполнена\",\n  \"priority\": \"высокий\",\n  \"category\": \"Работа\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost/task_api/TaskController.php",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "path": [
+            "task_api",
+            "TaskController.php"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Получение списка задач",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost/task_api/TaskController.php",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "path": [
+            "task_api",
+            "TaskController.php"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Получение задачи по ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost/task_api/TaskController.php?id=1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "path": [
+            "task_api",
+            "TaskController.php"
+          ],
+          "query": [
+            {
+              "key": "id",
+              "value": "1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Обновление задачи",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Обновленная задача\",\n  \"description\": \"Новое описание\",\n  \"due_date\": \"2025-04-25T10:00:00\",\n  \"priority\": \"средний\",\n  \"status\": \"выполнена\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost/task_api/TaskController.php?id=1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "path": [
+            "task_api",
+            "TaskController.php"
+          ],
+          "query": [
+            {
+              "key": "id",
+              "value": "1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Удаление задачи",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost/task_api/TaskController.php?id=1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "path": [
+            "task_api",
+            "TaskController.php"
+          ],
+          "query": [
+            {
+              "key": "id",
+              "value": "1"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
